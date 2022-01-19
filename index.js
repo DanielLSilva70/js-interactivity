@@ -34,7 +34,7 @@ function addMovie (event) {
         event.target.parentNode.remove()
     }
     function crossOffMovie (event) {
-        event.target.classList.toggle('.checked')
+        event.target.classList.toggle('checked')
     }
 
 
