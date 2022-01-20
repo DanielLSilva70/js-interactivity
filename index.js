@@ -4,25 +4,25 @@ console.log('hello world')
 function addMovie (event) {
     event.preventDefault()
 
-    const inputField = document.querySelector('input');
-    const movie = document.createElement('li')
-    const movieTitle = document.createElement('span')
+    let inputField = document.querySelector('input');
+    let movie = document.createElement('li')
+    let movieTitle = document.createElement('span')
 
     movieTitle.textContent = inputField.value;
-    movieTitle.textContent.addEventListener('click',crossOffMovie)
+  movieTitle.addEventListener("click", crossOffMovie);
 
     movie.appendChild(movieTitle)
 
-
+    //add
     movieTitle.textContent = inputField.value;
     movie.appendChild(movieTitle)
-    const list = document.querySelector('ul')
+    let list = document.querySelector('ul')
     list.appendChild(movie)
         inputField = "";
 
         //delete
         let deleteBtn = document.createElement('button')
-        deleteBtn.textContent = 'x'
+        deleteBtn.textContent = 'x';
         deleteBtn.addEventListener('click', deleteMovie)
         movie.appendChild(deleteBtn)
         
@@ -32,10 +32,18 @@ function addMovie (event) {
     
     function deleteMovie (event) {
         event.target.parentNode.remove()
+        message.textContent = 'movie deleted!'
     }
-    function crossOffMovie (event) {
+    
+    function crossOffMovie(event) {
         event.target.classList.toggle('checked')
+    
+        if (event.target.classList.contains('checked') === true) {
+            message.textContent = 'Movie watched!'
+            
+        } else {
+            message.textContent = 'Movie added back!'
+            
+        }
     }
-
-
     
